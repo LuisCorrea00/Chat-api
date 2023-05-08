@@ -23,4 +23,10 @@ app.use('/salas', router.get('/salas',(req, res, next)=>{
     res.status(200).send(resp);
 }));
 
+app.use('/entrar', router.get('/entrar',(req, res, next)=>{
+    const usuarioController = require("./controllers/usuarioController");
+    let resp = usuarioController.entrar(req.body.nick);
+    res.status(200).send(resp);
+}));
+
 module.exports=app;
