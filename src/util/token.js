@@ -1,7 +1,9 @@
 const jwt = require('jsonwebtoken');
 
 const checktoken = async(token, id, key) => jwt.verify(token, key, (err,decoded) =>{
-    . . . .
+    if (err) {
+        return res.status(403).json({ mensagem: 'Falha na autenticação do token.' });
+      }
 });
 
 const setToken = async (id,key)=>{
